@@ -20,20 +20,17 @@ class Sphere {
   void update();
   void draw();
   void drawParameters();
-  void doWork(float force, float displacement);
+  void doWork(float work);
   // getter
   float getSpeed() { return speed_; }
   float getMass() { return mass_; }
 
  private:
   void updatePos();
-  float culculateSpeedFromWork(const float &work,
-                               const float &mass,
-                               const float &speed);
-  float culculateWork(const float &force,
-                      const float &displacement);
-  float culculateKineticEnergy(const float &mass,
-                               const float &speed);
+  float culculateEnergyFromSpeed(const float &speed,
+                                 const float &mass);
+  float culculateSpeedFromEnergy(const float &energy,
+                               const float &mass);
   const AppTime * app_time_;
   float speed_;  // m/s
   float position_;  // m

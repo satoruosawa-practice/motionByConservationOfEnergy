@@ -45,25 +45,23 @@ void Sphere::drawParameters() {
                      " m", 10, 80);
 }
 
-void Sphere::doWork(float force, float displacement) {
-  float work = culculateWork(force, displacement);
-  speed_ = culculateSpeedFromWork(work, mass_, speed_);
+void Sphere::doWork(float work) {
+  float energy = culculateEnergyFromSpeed(speed_, mass_);
+  energy += work;
+  if (energy < 0) { energy = 0; }
+  speed_ = culculateSpeedFromEnergy(energy, mass_);
 }
 
-float Sphere::culculateSpeedFromWork(const float &work,
-                                    const float &mass,
-                                    const float &speed) {
+float Sphere::culculateEnergyFromSpeed(const float &speed,
+                                       const float &mass) {
+  return 0.5 * mass * speed * speed;
+}
+
+float Sphere::culculateSpeedFromEnergy(const float &energy,
+                                       const float &mass) {
   float sFinal;
-  sFinal = work + culculateKineticEnergy(mass, speed);
+  sFinal = energy;
   sFinal *= 2.0 / mass;
   sFinal = sqrt(sFinal);
   return sFinal;
-}
-
-float Sphere::culculateWork(const float &force, const float &displacement) {
-  return displacement * force;
-}
-
-float Sphere::culculateKineticEnergy(const float &mass, const float &speed) {
-  return 0.5 * mass * speed * speed;
 }

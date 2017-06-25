@@ -37,12 +37,17 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
   switch(key) {
+    case OF_KEY_LEFT:
+      {
+        float work = -1.0;  // J
+        sphere_.doWork(work);
+      }
+      break;
     case OF_KEY_RIGHT:
-    {
-      float dx = 1.0;  // m
-      float force = 1.0;  // N
-      sphere_.doWork(force, dx);
-    }
+      {
+        float work = 1.0;  // J
+        sphere_.doWork(work);
+      }
       break;
     case 'c':
       sphere_.reset();
