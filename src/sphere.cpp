@@ -15,8 +15,9 @@ Sphere::Sphere(const AppTime &app_time) {
 
 void Sphere::reset() {
   speed_ = 0.0;
-  position_ = 0.0;
-  mass_ = 10.0;
+  position_ = 1.0;
+  mass_ = 1.0;
+  radius_ = 0.1;
 }
 
 void Sphere::update() {
@@ -29,18 +30,22 @@ void Sphere::updatePos() {
 
 void Sphere::draw() {
   ofDrawCircle(position_ * PX_PER_METER,
-               ofGetHeight() * 0.5, mass_ * 1.0);
-  
-  ofDrawBitmapString("speed = " +
-                     ofToString(speed_) +
-                     " m/s", 10, 40);
-  ofDrawBitmapString("position = " +
-                     ofToString(position_) +
-                     " m", 10, 60);
+               ofGetHeight() * 0.5,
+               radius_ * PX_PER_METER);
 }
 
-void Sphere::addForce(float force, float displacement) {
-  
+void Sphere::drawParameters() {
+  ofDrawBitmapString("mass: " + ofToString(mass_, 1) +
+                     " kg", 10, 40);
+  ofDrawBitmapString("speed: " +
+                     ofToString(speed_, 2) +
+                     " m/s", 10, 60);
+  ofDrawBitmapString("position: " +
+                     ofToString(position_, 2) +
+                     " m", 10, 80);
+}
+
+void Sphere::doWork(float force, float displacement) {
   float work = culculateWork(force, displacement);
   speed_ = culculateSpeedFromWork(work, mass_, speed_);
 }
@@ -62,4 +67,3 @@ float Sphere::culculateWork(const float &force, const float &displacement) {
 float Sphere::culculateKineticEnergy(const float &mass, const float &speed) {
   return 0.5 * mass * speed * speed;
 }
-

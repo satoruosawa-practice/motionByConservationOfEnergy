@@ -31,6 +31,7 @@ void ofApp::draw(){
                      ofToString(app_time_.getElapsedTimeS(), 1) +
                      " s",
                      200, 20);
+  sphere_.drawParameters();
 }
 
 //--------------------------------------------------------------
@@ -40,7 +41,7 @@ void ofApp::keyPressed(int key){
     {
       float dx = 1.0;  // m
       float force = 1.0;  // N
-      sphere_.addForce(force, dx);
+      sphere_.doWork(force, dx);
     }
       break;
     case 'c':
