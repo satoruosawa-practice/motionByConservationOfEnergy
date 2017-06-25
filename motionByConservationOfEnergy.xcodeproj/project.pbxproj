@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8728A0B01EFF78D600E663BE /* sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8728A0AE1EFF78D600E663BE /* sphere.cpp */; };
+		8728A0B61EFF829600E663BE /* app_time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8728A0B41EFF829600E663BE /* app_time.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
 		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
@@ -45,6 +46,9 @@
 /* Begin PBXFileReference section */
 		8728A0AE1EFF78D600E663BE /* sphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sphere.cpp; sourceTree = "<group>"; };
 		8728A0AF1EFF78D600E663BE /* sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sphere.h; sourceTree = "<group>"; };
+		8728A0B21EFF81F400E663BE /* global_definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = global_definition.h; sourceTree = "<group>"; };
+		8728A0B41EFF829600E663BE /* app_time.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = app_time.cpp; sourceTree = "<group>"; };
+		8728A0B51EFF829600E663BE /* app_time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = app_time.h; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E4B69B5B0A3A1756003C02F2 /* motionByConservationOfEnergyDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = motionByConservationOfEnergyDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
@@ -110,6 +114,9 @@
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				8728A0AE1EFF78D600E663BE /* sphere.cpp */,
 				8728A0AF1EFF78D600E663BE /* sphere.h */,
+				8728A0B41EFF829600E663BE /* app_time.cpp */,
+				8728A0B51EFF829600E663BE /* app_time.h */,
+				8728A0B21EFF81F400E663BE /* global_definition.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -210,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8728A0B61EFF829600E663BE /* app_time.cpp in Sources */,
 				8728A0B01EFF78D600E663BE /* sphere.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,

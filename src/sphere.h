@@ -9,16 +9,23 @@
 #pragma once
 
 #include "ofMain.h"
+#include "./global_definition.h"
+#include "./app_time.h"
 
 class Sphere {
  public:
-  void setup();
+  Sphere() = default;
+  explicit Sphere(const AppTime &app_time);
+  void reset();
+  void update();
+  void draw();
   // getter
   float getSpeed() { return speed_; }
   float getMass() { return mass_; }
   void addForce(float force, float displacement);
 
  private:
+  void updatePos();
   float culculateSpeedFromWork(const float &work,
                                const float &mass,
                                const float &speed);
@@ -26,6 +33,8 @@ class Sphere {
                       const float &displacement);
   float culculateKineticEnergy(const float &mass,
                                const float &speed);
+  const AppTime * app_time_;
   float speed_;
+  float position_;
   float mass_;
 };

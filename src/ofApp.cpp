@@ -7,27 +7,48 @@ void ofApp::setup(){
   //  ofSetFrameRate(0);
   ofBackground(63);
   
-  sphere_.setup();
+  app_time_ = AppTime();
+  sphere_ = Sphere(app_time_);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-  
+  app_time_.update();
+  sphere_.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-  ofDrawGrid(100, 11, false, false, false, true);
+  ofDrawGrid(PX_PER_METER, 11, false, false, false, true);
   
-  ofDrawBitmapString("speed = " + ofToString(sphere_.getSpeed()), 10, 40);
-  ofDrawBitmapString("frameRate = " + ofToString(ofGetFrameRate()), 10, 20);
+  sphere_.draw();
+  
+  ofDrawBitmapString("frameRate: " +
+                     ofToString(ofGetFrameRate(), 1) +
+                     " fps",
+                     10, 20);
+  ofDrawBitmapString("time: " +
+                     ofToString(app_time_.getElapsedTimeS(), 1) +
+                     " s",
+                     200, 20);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-  float dx = 1.0;  // m
-  float force = 1.0;  // N
-  sphere_.addForce(force, dx);
+  switch(key) {
+    case OF_KEY_RIGHT:
+    {
+      float dx = 1.0;  // m
+      float force = 1.0;  // N
+      sphere_.addForce(force, dx);
+    }
+      break;
+    case 'c':
+      sphere_.reset();
+      break;
+    default:
+      break;
+  }
 }
 
 //--------------------------------------------------------------
